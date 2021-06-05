@@ -32,12 +32,12 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Header />
-                <NotesList />
+                <Header searchText={this.state.searchText}/>
+                <NotesList notes={this.state.notes}/>
             </div>
         );
     }
-    
+
 }
 
-    export default App;
+export default App;
