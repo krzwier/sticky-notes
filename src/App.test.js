@@ -4,7 +4,7 @@ import App from './App';
 describe('App', () => {
     test('renders "Super Sticky Notes" header', () => {
         render(<App />);
-        const header = screen.queryByText(/Super Sticky Notes/);
+        const header = screen.queryByText(/all the stickies/);
         expect(header).toBeInTheDocument();
     });
 
