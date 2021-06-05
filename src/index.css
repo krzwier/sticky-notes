@@ -112,7 +112,7 @@ input, textarea {
 
 .note__title, .note__description {
     font-family: "Permanent Marker", cursive;
-    width: calc(100% = 28px);
+    width: calc(100% - 28px);
     padding: 8px 14px;
     background: transparent;
     background: none;

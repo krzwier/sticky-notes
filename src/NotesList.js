@@ -5,9 +5,13 @@ const renderNote = (note) => (
     <Note note={note} key={note.id} />
 );
 
+const filterNotes = (note) => (note.doesMatchSearch);
+
+
 const NotesList = (props) => {
 
-    const renderedNotes = props.notes.map(renderNote);
+    const filteredNotes = props.notes.filter(filterNotes)
+    const renderedNotes = filteredNotes.map(renderNote);
 
     return (
         <ul className="notes-list">
