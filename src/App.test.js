@@ -20,10 +20,25 @@ describe('App', () => {
         expect(input).toBeInTheDocument();
     });
 
+    test('renders three sticky notes with title input when App loads', () => {
+        render(<App/>);
+        const stickyTitles = screen.queryAllByPlaceholderText(/Title/);
+        expect(stickyTitles.length).toBe(3);
+    });
+
+    test('renders three sticky notes with text areas when App loads', () => {
+        render(<App/>);
+        const stickyTextAreas = screen.queryAllByPlaceholderText(/Description.../);
+        expect(stickyTextAreas.length).toBe(3);
+    });
+
+    test('renders X for all three sticky notes when App loads', () => {
+        render(<App/>);
+        const stickyXs = screen.queryAllByText("X");
+        expect(stickyXs.length).toBe(3);
+    });
+
+
 });
 
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+
