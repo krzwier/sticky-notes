@@ -3,28 +3,28 @@ import './App.css';
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <h1>Super Sticky Notes</h1>
-                <aside>
-                    <button>+ New Note</button>
-                    <input placeholder="Type here to search..." />
+            <header className="app-header">
+                <h1 className="app-header__title">all the stickies</h1>
+                <aside className="app-header__controls">
+                    <button className="add-new">+ New Note</button>
+                    <input className="search" placeholder="Type here to search..." />
                 </aside>
             </header>
-            <ul>
-                <li>
-                    <input type="text" placeholder="Title" />
-                    <textarea placeholder="Description..." />
-                    <span>X</span>
+            <ul className="notes-list">
+                <li className="note">
+                    <input className="note__title" type="text" placeholder="Title" />
+                    <textarea className="note__description" placeholder="Description..." />
+                    <span className="note__delete">X</span>
                 </li>
-                <li>
-                    <input type="text" placeholder="Title" />
-                    <textarea placeholder="Description..." />
-                    <span>X</span>
+                <li className="note">
+                <input className="note__title" type="text" placeholder="Title" />
+                <textarea className="note__description" placeholder="Description..." />
+                <span className="note__delete">X</span>
                 </li>
-                <li>
-                    <input type="text" placeholder="Title" />
-                    <textarea placeholder="Description..." />
-                    <span>X</span>
+                <li className="note">
+                <input className="note__title" type="text" placeholder="Title" />
+                <textarea className="note__description" placeholder="Description..." />
+                <span className="note__delete">X</span>
                 </li>
             </ul>
         </div>
