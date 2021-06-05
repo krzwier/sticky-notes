@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c3dcf92d.chunk.css",
+    "main.js": "/static/js/main.ce271ae3.chunk.js",
+    "main.js.map": "/static/js/main.ce271ae3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.478f18d9.js",
+    "runtime-main.js.map": "/static/js/runtime-main.478f18d9.js.map",
+    "static/js/2.0cf8f527.chunk.js": "/static/js/2.0cf8f527.chunk.js",
+    "static/js/2.0cf8f527.chunk.js.map": "/static/js/2.0cf8f527.chunk.js.map",
+    "static/js/3.3be91cdb.chunk.js": "/static/js/3.3be91cdb.chunk.js",
+    "static/js/3.3be91cdb.chunk.js.map": "/static/js/3.3be91cdb.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.c3dcf92d.chunk.css.map": "/static/css/main.c3dcf92d.chunk.css.map",
+    "static/js/2.0cf8f527.chunk.js.LICENSE.txt": "/static/js/2.0cf8f527.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/joe-woods-4Zaq5xY5M_c-unsplash.30a77dee.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.478f18d9.js",
+    "static/js/2.0cf8f527.chunk.js",
+    "static/css/main.c3dcf92d.chunk.css",
+    "static/js/main.ce271ae3.chunk.js"
+  ]
+}
