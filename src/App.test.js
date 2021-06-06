@@ -23,21 +23,34 @@ describe('App', () => {
     test('renders three sticky notes with title input when App loads', () => {
         render(<App/>);
         const stickyTitles = screen.queryAllByPlaceholderText(/Title/);
-        expect(stickyTitles.length).toBe(3);
+        expect(stickyTitles.length).toBe(1);
     });
 
     test('renders three sticky notes with text areas when App loads', () => {
         render(<App/>);
         const stickyTextAreas = screen.queryAllByPlaceholderText(/Description.../);
-        expect(stickyTextAreas.length).toBe(3);
+        expect(stickyTextAreas.length).toBe(1);
     });
 
     test('renders X for all three sticky notes when App loads', () => {
         render(<App/>);
         const stickyXs = screen.queryAllByText("X");
-        expect(stickyXs.length).toBe(3);
+        expect(stickyXs.length).toBe(1);
     });
 
+
+});
+
+describe('Clicking "Add Note" button', () => {
+
+    test('renders new note', () => {
+        render(<App/>);
+        const button = screen.queryByRole("button");
+        button.click();
+        const stickies = document.querySelectorAll(".note");
+        expect(stickies.length).toBe(2);
+
+    })
 
 });
 
