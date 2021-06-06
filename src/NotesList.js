@@ -6,18 +6,28 @@ import Note from "./Note";
 const filterNotes = note => note.doesMatchSearch;
 
 
-const NotesList = (props) => {
+const NotesList = ({
+    notes = [
+        {
+            id: Date.now(),
+            title: "",
+            description: "",
+            doesMatchSearch: true
+        }
+    ],
+    onType = null
+}) => {
 
     const renderNote = (note) => (
-        <Note note={note} key={note.id} onType={props.onType}/>
+        <Note note={note} key={note.id} onType={onType} />
     );
 
-    const filteredNotes = props.notes.filter(filterNotes)
+    const filteredNotes = notes.filter(filterNotes)
     const renderedNotes = filteredNotes.map(renderNote);
 
 
     return (
-        <ul className="notes-list">
+        <ul className="notes-list" data-testid="NotesList">
             {renderedNotes}
         </ul>
     )

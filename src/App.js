@@ -28,14 +28,12 @@ class App extends Component {
         this.setState({ notes: notesArray });
     }
 
-    
-
     onType = (noteId, field, newText) => {
         const updateNote = (note) => {
             if (note.id === noteId) {
                 if (field === "title") {
                     note.title = newText;
-                } else if (field === "description") {
+                } else {
                     note.description = newText;
                 }
             }
@@ -43,7 +41,6 @@ class App extends Component {
         }
         const noteArray = this.state.notes.map(updateNote);
         this.setState({notes: noteArray});
-
     }
 
     render() {
