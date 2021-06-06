@@ -43,15 +43,23 @@ describe('App', () => {
 
 describe('Clicking "Add Note" button', () => {
 
-    test('renders new note', () => {
+    it('renders new note', () => {
         render(<App/>);
         const button = screen.queryByRole("button");
         button.click();
         const stickies = document.querySelectorAll(".note");
         expect(stickies.length).toBe(2);
 
-    })
+    });
 
 });
+
+// describe('Typing in the title field of a note', () => {
+    
+//     it('changes the title of the note in state', () => {
+
+//     });
+
+// });
 
 
