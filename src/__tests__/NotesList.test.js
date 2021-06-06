@@ -12,19 +12,19 @@ describe('NotesList', () => {
     it('renders only notes with doesMatchSearch=true', () => {
         const notes = [
             {
-                id: Date.now(),
+                id: 0,
                 title: "",
                 description: "",
                 doesMatchSearch: true
             },
             {
-                id: Date.now(),
+                id: 1,
                 title: "",
                 description: "",
                 doesMatchSearch: false
             },
             {
-                id: Date.now(),
+                id: 2,
                 title: "",
                 description: "",
                 doesMatchSearch: true

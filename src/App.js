@@ -5,15 +5,20 @@ import NotesList from './NotesList';
 
 class App extends Component {
 
-    state = {
+    static defaultProps = {
         notes: [
             {
-                id: Date.now(),
+                id: 0,
                 title: "",
                 description: "",
                 doesMatchSearch: true,
             }
-        ],
+        ]
+    };
+
+
+    state = {
+        notes: this.props.notes,
         searchText: ""
     };
 
@@ -43,10 +48,28 @@ class App extends Component {
         this.setState({notes: noteArray});
     }
 
+    onSearch = (searchString) => {
+        this.setState({searchText: searchString});
+        const updateMatchBoolean = (note) => {
+            if (note.title.match(regEx) ||
+                note.description.match(regEx)) {
+                    note.doesMatchSearch = true;
+                }
+            else {
+                note.doesMatchSearch = false;
+            }
+            return note;
+        }
+        const regEx = new RegExp(searchString, 'i');
+        const noteArray = this.state.notes.map(updateMatchBoolean);
+        this.setState({notes: noteArray});
+    }
+    
+
     render() {
         return (
             <div className="App">
-                <Header searchText={this.state.searchText} addNote={this.addNote} />
+                <Header searchText={this.state.searchText} addNote={this.addNote} onSearch={this.onSearch} />
                 <NotesList notes={this.state.notes} onType={this.onType} />
             </div>
         );

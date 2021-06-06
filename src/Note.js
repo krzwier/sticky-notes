@@ -3,9 +3,9 @@ import React, { Component } from "react";
 class Note extends Component {
 
     static defaultProps = {
-        key: Date.now(),
+        key: 0,
         note: {
-            id: this.key,
+            id: 0,
             title: "",
             description: "",
             doesMatchSearch: true

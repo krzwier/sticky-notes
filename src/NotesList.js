@@ -9,7 +9,7 @@ const filterNotes = note => note.doesMatchSearch;
 const NotesList = ({
     notes = [
         {
-            id: Date.now(),
+            id: 0,
             title: "",
             description: "",
             doesMatchSearch: true
