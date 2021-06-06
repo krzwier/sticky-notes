@@ -15,11 +15,12 @@ const NotesList = ({
             doesMatchSearch: true
         }
     ],
-    onType = null
+    onType = null,
+    deleteNote = null
 }) => {
 
     const renderNote = (note) => (
-        <Note note={note} key={note.id} onType={onType} />
+        <Note note={note} key={note.id} onType={onType} deleteNote={deleteNote} />
     );
 
     const filteredNotes = notes.filter(filterNotes)

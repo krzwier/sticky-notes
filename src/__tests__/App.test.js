@@ -22,7 +22,51 @@ describe('Clicking "Add Note" button', () => {
         render(<App/>);
         const button = screen.queryByRole("button");
         button.click();
-        const stickies = document.querySelectorAll(".note");
+        const stickies = screen.queryAllByTestId('Note');
+        expect(stickies.length).toBe(2);
+
+    });
+
+});
+
+describe('Clicking X on a note', () => {
+
+    const notes = [
+        {
+            id: 0,
+            title: "Bubba",
+            description: "",
+            doesMatchSearch: true
+        },
+        {
+            id: 1,
+            title: "Angela",
+            description: "Boris",
+            doesMatchSearch: true
+        },
+        {
+            id: 2,
+            title: "Susie",
+            description: "Mikki",
+            doesMatchSearch: true
+        }
+    ];
+
+    it('deletes the note', () => {
+        render(<App/>);
+        const x = screen.queryByTestId("x");
+        x.click();
+        const stickies = screen.queryAllByTestId('Note');
+        expect(stickies.length).toBe(0);
+
+    });
+
+    it('deletes only the correct note', () => {
+        render(<App notes={notes}/>);
+        const Xs = screen.queryAllByTestId('x');
+        Xs[0].click();
+        const newXs = screen.queryAllByTestId('x');
+        const stickies = screen.queryAllByTestId('Note');
         expect(stickies.length).toBe(2);
 
     });
