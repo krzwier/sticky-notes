@@ -1,6 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from '../App';
 
+beforeEach(() => {
+    localStorage.clear();
+});
+
 describe('App', () => {
     it('renders <Header />', () => {
         render(<App />);
@@ -12,6 +16,51 @@ describe('App', () => {
         render(<App />);
         const notesList = screen.queryByTestId("NotesList");
         expect(notesList).toBeInTheDocument();
+    });
+
+    it('saves to local storage when a sticky is updated', () => {
+        render(<App />);
+        expect(localStorage.getItem("notes")).toBeUndefined;
+        const button = screen.queryByRole("button");
+        button.click();
+        const titleInput = screen.getAllByTestId('titleInput');
+        fireEvent.change(titleInput[0], { target: { value: 'Groceries'}});
+        const notesString = localStorage.getItem("notes");
+        const notesArray = JSON.parse(notesString);
+        expect(notesArray[0].title).toBe('Groceries');
+
+    });
+
+    it('retrieves from local storage when app loads', () => {
+        const notes = [
+            {
+                id: 0,
+                title: "Bubba",
+                description: "",
+                doesMatchSearch: true
+            },
+            {
+                id: 1,
+                title: "Angela",
+                description: "Boris",
+                doesMatchSearch: true
+            },
+            {
+                id: 2,
+                title: "Susie",
+                description: "Mikki",
+                doesMatchSearch: true
+            }
+        ];
+        localStorage.setItem("notes", JSON.stringify(notes));
+        render(<App/>);
+        const stickies = screen.queryAllByTestId('Note');
+        expect(stickies.length).toBe(3);
+        const stickyTitles = screen.getAllByTestId('titleInput');
+        expect(stickyTitles[0].value).toBe("Bubba");
+        const stickyDescriptions = screen.getAllByTestId('descriptionInput');
+        expect(stickyDescriptions[2].value).toBe("Mikki");
+
     });
 
 });

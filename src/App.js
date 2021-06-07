@@ -5,6 +5,7 @@ import NotesList from './NotesList';
 
 class App extends Component {
 
+    /**** PROPS ****/
     static defaultProps = {
         notes: [
             {
@@ -16,11 +17,30 @@ class App extends Component {
         ]
     };
 
+    /**** STATE ****/
 
     state = {
         notes: this.props.notes,
         searchText: ""
     };
+
+    /**** LIFECYCLE METHODS ****/
+
+    componentDidMount() {
+        const notesString = localStorage.getItem('notes');
+        if (notesString) {
+            const notes = JSON.parse(notesString);
+            this.setState({notes: notes});
+        }
+        
+    }
+
+    componentDidUpdate() {
+        const notesString = JSON.stringify(this.state.notes);
+        localStorage.setItem("notes", notesString);
+    }
+
+    /**** EVENT HANDLERS ****/
 
     addNote = () => {
         const newNote = {
@@ -75,7 +95,6 @@ class App extends Component {
         this.setState({notes: noteArray});
     }
     
-
     render() {
         return (
             <div className="App">
